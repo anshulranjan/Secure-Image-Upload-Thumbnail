@@ -35,7 +35,8 @@ A secure, serverless cloud application for uploading images, automatic thumbnail
 
 ## Architecture
 
-![Architecture Diagram](https://i.imgur.com/2b3tQQt.png)
+<img width="1275" height="461" alt="image" src="https://github.com/user-attachments/assets/8725903b-c610-4212-bc59-05858df5d9ad" />
+
 
 **How it works:**
 1. The user uploads an image with a POST request to API Gateway.
