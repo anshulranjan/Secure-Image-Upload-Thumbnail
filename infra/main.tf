@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "images" {
-  bucket = "anshul-local-cloud-storage"
+  bucket        = "anshul-local-cloud-storage"
   force_destroy = true
 }
 
@@ -33,8 +33,8 @@ resource "aws_iam_role_policy" "lambda_s3_policy" {
     Statement = [
       # Lambda can Put, Get, List objects in our bucket (restrict as needed)
       {
-        Effect   = "Allow",
-        Action   = [
+        Effect = "Allow",
+        Action = [
           "s3:PutObject",
           "s3:GetObject",
           "s3:ListBucket"
