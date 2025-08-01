@@ -14,7 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Optional: Check Terraform formatting and lint
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Check Terraform formatting and lint
       - name: Check Terraform Format
         run: terraform fmt -check -recursive
         working-directory: ./infra
@@ -23,7 +26,6 @@ jobs:
         run: terraform validate
         working-directory: ./infra
 
-      # Optional: Basic Python lint for lambda functions
       - name: Check Python formatting with black
         run: |
           pip install black
