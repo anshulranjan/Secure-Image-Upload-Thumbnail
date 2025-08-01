@@ -1,0 +1,30 @@
+name: CI Checks (Terraform & Python)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Optional: Check Terraform formatting and lint
+      - name: Check Terraform Format
+        run: terraform fmt -check -recursive
+        working-directory: ./infra
+
+      - name: Validate Terraform Syntax
+        run: terraform validate
+        working-directory: ./infra
+
+      # Optional: Basic Python lint for lambda functions
+      - name: Check Python formatting with black
+        run: |
+          pip install black
+          black --check ./lambda
